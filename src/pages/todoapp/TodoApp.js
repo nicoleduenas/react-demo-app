@@ -30,7 +30,8 @@ export const TodoApp = () => {
     });
   };
 
-  const handleToggleTodo = (todoToToggle) => {
+  const handleToggleTodo = (todoToToggle, index) => {
+    todoToToggle.done = !todoToToggle.done;
     dispatch({
       type: 'toggle',
       payload: todoToToggle,

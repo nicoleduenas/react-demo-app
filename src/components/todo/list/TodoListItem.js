@@ -7,11 +7,18 @@ export const TodoListItem = ({
 }) => {
   return (
     <li key={todo.id} className="list-group-item">
-      <p onClick={() => handleToggleTodo(todo.id)}>
-        {index + 1}. {todo.desc}
-      </p>
-      <strike if>{index + 1}. {todo.desc}</strike>
-       
+      <div onClick={() => handleToggleTodo(todo, index)}>
+        {todo.done ? (
+          <strike>
+            {index + 1}. {todo.desc}
+          </strike>
+        ) : (
+          <p>
+            {index + 1}. {todo.desc}
+          </p>
+        )}
+      </div>
+
       <button
         className="btn btn-danger"
         onClick={() => handleDeleteTodo(todo.id)}
